@@ -18,7 +18,7 @@ class Login(models.Model):
 class People(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-    # icon = models.models.ImageField() <- não faço ideia de como isso funciona
+    # icon = models.models.models.ImageField(_(""), upload_to=None, height_field=None, width_field=None, max_length=None)
     category = models.models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     id_people = models.IntegerField(primary_key=True)
     fk_category = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
