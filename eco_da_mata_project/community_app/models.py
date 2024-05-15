@@ -2,10 +2,30 @@ from django.db import models
 
 # Create your models here.
 
-"""Não comecei ainda pq não achei a modelagem dos bancos""" 
 
 class Community (models.Model):
-    pass
+
+    category_choices =[
+        ("COMMUNITY","Comunidade"),
+        ("Tourist attraction","Ponto Turístico")] 
+    
+    id = models.IntegerField(primary_key=True)
+    title = models.CharField(max_length=100)
+    category = models.CharField(max_length=50, choices=category_choices)
+    foundation_date = models.DateField()
+    visit_time = models.TimeField()
+    longitude = models.IntegerField()
+    latitude = models.IntegerField()
+    link = "não sei"
+
 
 class News (models.Model):
-    pass
+
+    id = models.IntegerField(primary_key=True)
+    id_community = models.ForeignKey(Community, on_delete=models.CASCADE) 
+    title = models.CharField(max_length=500)
+    news_text = models.TextField()
+    publish_date = models.DateField()
+    category = "Não lembro"
+    link = "não sei"
+    
