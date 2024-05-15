@@ -9,11 +9,17 @@ CATEGORY_CHOICES = [
 class Subcategory(models.Model):
     name = models.CharField(max_length=100)
     category = models.CharField(max_length=100)
+     
+    def __str__(self):
+        return self.name
 
 class Login(models.Model):
     user = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
     email = models.models.EmailField(max_length=254)
+
+    def __str__(self):
+        return self.name
 
 class People(models.Model):
     name = models.CharField(max_length=100)
@@ -23,3 +29,6 @@ class People(models.Model):
     id_people = models.IntegerField(primary_key=True)
     fk_category = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     fk_login = models.ForeignKey(Login, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
