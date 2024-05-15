@@ -18,6 +18,8 @@ class Community (models.Model):
     latitude = models.IntegerField()
     link = "não sei"
 
+    def __str__(self):
+        return self.name
 
 class News (models.Model):
 
@@ -28,4 +30,7 @@ class News (models.Model):
     publish_date = models.DateField()
     category = "Não lembro"
     link = "não sei"
+    
+    def __str__(self):
+        return self.name
     
