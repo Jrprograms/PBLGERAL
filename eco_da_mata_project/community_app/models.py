@@ -16,7 +16,8 @@ class Community (models.Model):
     visit_time = models.TimeField()
     longitude = models.IntegerField()
     latitude = models.IntegerField()
-    link = "não sei"
+    link = models.URLField(max_length=200)
+    logo = models.ImageField()
 
     def __str__(self):
         return self.name
@@ -28,8 +29,8 @@ class News (models.Model):
     title = models.CharField(max_length=500)
     news_text = models.TextField()
     publish_date = models.DateField()
-    category = "Não lembro"
-    link = "não sei"
+    category = models.CharField()
+    link = models.URLField()
     
     def __str__(self):
         return self.name
