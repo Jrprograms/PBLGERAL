@@ -4,7 +4,7 @@ from eco_da_mata_project.people_app.models import People
 # Create your models here.
 
 class Project (models.Model):
-
+    id = models.BigAutoField(primary_key=True)
     date = models.DateField()
     name = models.CharField(max_length=100)
     link = models.URLField(max_length=200)
