@@ -27,8 +27,8 @@ class Event(models.Model):
 
     pdf_link = models.URLField(max_length=100)
     questionary_link = models.URLField(max_length=100)
-    category = models.CharField(max_length=20, choices="")
-    format = models.Choices("Syncron", "Assincron-")
+    category = models.CharField(max_length=20)
+    format = models.CharField(max_length=100)
     
     # fk_project = models.ForeignKey(None, on_delete=True)
 
