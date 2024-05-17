@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'community_app',
     'people_app',
     'project_app',
-    'Events'
+    'events_app'
 ]
 
 MIDDLEWARE = [
