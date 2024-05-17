@@ -1,7 +1,7 @@
 from django.db import models
 
-from eco_da_mata_project.community_app.models import Community
-from eco_da_mata_project.people_app.models import People
+from community_app.models import Community
+from people_app.models import People
 
 # Create your models here.
 

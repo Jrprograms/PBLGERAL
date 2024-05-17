@@ -29,7 +29,7 @@ class News (models.Model):
     title = models.CharField(max_length=500)
     news_text = models.TextField()
     publish_date = models.DateField()
-    category = models.CharField()
+    category = models.CharField(max_length=100)
     link = models.URLField()
     
     def __str__(self):

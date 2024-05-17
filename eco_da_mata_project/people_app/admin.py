@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import People, Login, Subcategory
+from people_app.models import People, Login, Subcategory
 
 # Register your models here.
 admin.site.register(People)

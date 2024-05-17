@@ -17,7 +17,7 @@ class Event(models.Model):
     location = models.CharField(max_length=100)
 
     link = models.CharField(max_length=100)
-    value = models.DecimalField()
+    value = models.DecimalField(decimal_places=2,max_digits=100)
 
     pix_key = models.CharField(max_length=500)
     pix_key_owner = models.CharField(max_length=100)
@@ -27,8 +27,9 @@ class Event(models.Model):
     questionary_link = models.CharField(max_length=200)
     category = models.CharField(max_length=20, choices="")
     
-    fk_project = models.ForeignKey(None, on_delete=True)
-    fk_image = models.ForeignKey(None, on_delete=True)
+    # fk_project = models.ForeignKey(None, on_delete=True)
+    # fk_image = models.ForeignKey(None, on_delete=True)
 
-class report(models.Model):
-   #em construção ;)
+# class report(models.Model):
+#     pass
+#    #em construção ;)
