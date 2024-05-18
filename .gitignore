@@ -137,3 +137,5 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .vscode
 .history
+
+*.jpg
