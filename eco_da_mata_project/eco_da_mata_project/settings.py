@@ -58,7 +58,7 @@ ROOT_URLCONF = 'eco_da_mata_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"C:\Users\Pichau\Desktop\PROJETOS_VS\CURSO_DJANGO\PBLGERAL\eco_da_mata_project\community_app\templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
