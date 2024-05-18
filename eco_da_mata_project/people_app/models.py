@@ -9,7 +9,7 @@ CATEGORY_CHOICES = [
 # Create your models here.
 class Subcategorie(models.Model):
     name = models.CharField(max_length=100)
-    category = models.CharField(max_length=100)
+    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
      
     def __str__(self):
         return self.name
@@ -22,4 +22,4 @@ class People(models.Model):
     fk_subcategory = models.ForeignKey(Subcategorie, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.name.username
