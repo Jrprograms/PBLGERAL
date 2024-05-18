@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peoples</title>
+</head>
+<body>
+    <ul>
+        {% for pessoa in pessoas %}
+            <li>
+                <p>Nome:</p> {{ pessoa.name.username }}<br>
+                <p>Descrição:</p> {{ pessoa.description }}<br>
+                <p>Categoria:</p> {{ pessoa.category }}<br>
+                <p>Subcategoria:</p> {{ pessoa.fk_subcategory.name }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
