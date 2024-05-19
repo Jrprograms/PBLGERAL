@@ -8,12 +8,10 @@
 <body>
     <ul>
         {% for pessoa in pessoas %}
-            <li>
-                <p>Nome:</p> {{ pessoa.name.username }}<br>
-                <p>Descrição:</p> {{ pessoa.description }}<br>
-                <p>Categoria:</p> {{ pessoa.category }}<br>
-                <p>Subcategoria:</p> {{ pessoa.fk_subcategory.name }}<br>
-            </li>
+            <li><p>Nome:</p> {{ pessoa.name.username }}<br>
+            <li><p>Descrição:</p> {{ pessoa.description }}<br>
+            <li><p>Categoria:</p> {{ pessoa.category }}<br>
+            <li><p>Subcategoria:</p> {{ pessoa.fk_subcategory.name }}<br>
         {% endfor %}
     </ul>
 </body>
