@@ -13,7 +13,7 @@ class Project (models.Model):
     description = models.CharField(max_length=200)
     link = models.URLField(max_length=200)
 
-    phone_number = models.IntegerField(max_length=11)
+    phone_number = models.IntegerField()
     email = models.EmailField()
 
     id_people = models.ForeignKey(People, on_delete=models.CASCADE)   

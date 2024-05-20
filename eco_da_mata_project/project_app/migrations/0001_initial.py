@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('community_app', '0001_initial'),
         ('people_app', '0001_initial'),
     ]
 
