@@ -20,7 +20,7 @@ class Event(models.Model):
 
     link = models.URLField(unique=True)
     value = models.DecimalField(decimal_places=2,max_digits=10)
-    pix_key = models.URLField(max_length=100)
+    pix_key = models.URLField(max_length=100) 
     pix_key_owner = models.CharField(max_length=100)
     bank_name = models.CharField(max_length=100)
     #__

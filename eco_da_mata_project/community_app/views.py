@@ -8,7 +8,7 @@ def CreateCommunityView(request):
         form = CommunityForm(request.POST)
         if form.is_valid():
             form.save()
-        return render (request,"index.html")
+        return render (request,"index.html") # Ideal é que seja usado o redirect ao invés do render neste caso.
     else:
         form = CommunityForm()
         context = {"form": form}
@@ -17,7 +17,7 @@ def CreateCommunityView(request):
 def RetrieveCommunityView(request):
     comunidades = Community.objects.all()
     context = {"comunidades": comunidades}
-    return render(request,"index.html",context)
+    return render(request,"index.html",context) # Cuidado com nomes genéricos para templates. Pode dar conflito se outro aplicativo acessar o mesmo nome.
   
 
 
