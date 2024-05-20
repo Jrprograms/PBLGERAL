@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('community/',include('community_app.urls')),
