@@ -20,6 +20,7 @@ from django.urls import path, include
 # É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('community/',include('community_app.urls')),
-    path('parceiros/', include('people_app.urls'))
+    path('community/', include('community_app.urls')),
+    path('parceiros/', include('people_app.urls')),
+    path('project/', include('project_app.urls'))
 ]
