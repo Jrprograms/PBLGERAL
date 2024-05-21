@@ -7,7 +7,7 @@ class Event(models.Model):
     #test
 
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=300)
+    body = models.CharField(max_length=300)
     profile_image = models.ImageField(name='', width_field=30, height_field=30)
     #__
 

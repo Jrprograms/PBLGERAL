@@ -1,8 +1,8 @@
-from . import view
+from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', view.getallprojects, name ="projetos"),
-    path('', view.getproject, name='projeto')
+    path('', views.getallprojects, name ="projetos"),
+    path('', views.getproject, name='projeto')
 
 ]
