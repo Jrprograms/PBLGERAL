@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\style.css' %}">
+
     <title>Teste</title>
 </head>
 <body>
     <h1>Lista de Comunidades</h1>
     {% for comunidade in comunidades %}
-        {{comunidade}}
+        <a href = "{% url 'retrieve_community_view' comunidade.id %}">{{comunidade}}</a>
         <hr>
     {% endfor %}
 

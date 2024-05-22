@@ -19,7 +19,7 @@ class Community (models.Model):
     logo = models.ImageField(upload_to="images/")
 
     def __str__(self):
-        return self.title
+        return self.title + " " + self.category
 
 class New (models.Model):
 
