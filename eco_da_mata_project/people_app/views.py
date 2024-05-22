@@ -5,4 +5,13 @@ from .models import People
 
 def getPeople(request):
     pessoas = People.objects.all()
-    return render(request, 'people.html', {'pessoas':pessoas})
+    return render(request, 'ListPeoples.html', {'pessoas':pessoas})
+
+def createPeople(request):
+    pass
+
+def updatePeople(request):
+    pass
+
+def deletePeople(request):
+    pass
