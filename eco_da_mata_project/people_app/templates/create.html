@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar parceiro</title>
+</head>
+<body>
+    <h1>Criar parceiro</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
+</body>
+</html>
