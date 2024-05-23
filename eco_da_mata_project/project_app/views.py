@@ -5,7 +5,7 @@ from .models import Project
 
 def getallprojects(request):
     projetos = Project.objects.all()
-    return render(request, 'projects.html', {'projetos': projetos})
+    return render(request, 'project.html', {'projetos': projetos})
 
 def getproject(request, ID):
      projeto = Project.objects.filter(pk=int(ID))
