@@ -55,6 +55,23 @@ MIDDLEWARE = [
     'project_app.middleware.RequestLoggingMiddleware'
 ]
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
 ROOT_URLCONF = 'eco_da_mata_project.urls'
 
 TEMPLATES = [
