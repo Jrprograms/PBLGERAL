@@ -5,9 +5,9 @@ from .models import Project
 projetos = Project.objects.all()
 
 def getallprojects(request):
+    projetos = Project.objects.all()
     return render(request, 'projects.html', {'projetos': projetos})
 
 def getproject(request, ID):
-     for projeto in projetos:
-          if projeto.id == ID:
-               return render(request, 'project.html', {'projeto': projeto})
+     projeto = Project.objects.filter(pk=ID)
+     return render(request, 'project.html', {'projeto': projeto})
