@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from . import forms
 from .models import People
 
@@ -22,8 +22,13 @@ def createPeople(request):
         form = forms.PeopleForm()
         return render(request, 'create', {'form': form})
 
-def updatePeople(request):
-    pass
-
-def deletePeople(request):
-    pass
+def deletePeople(request,people_id):
+    person = get_object_or_404(People, id=people_id)
+    if request.method == 'POST':
+        form = forms.peopleDeleteForm(request.POST)
+        if form.is_valid() and form.cleaned_data['confirm']:
+            person.delete()
+            return redirect('person_list')  # Redirecione para a lista de pessoas ou outra página após a exclusão
+    else:
+        form = forms.peopleDeleteForm()
+    return render(request, 'delete_person.html', {'form': form, 'person': person})

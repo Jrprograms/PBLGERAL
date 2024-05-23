@@ -13,11 +13,13 @@ class SubcategoryForm(forms.ModelForm):
 class PeopleForm(forms.ModelForm):
     class Meta:
         model = People
-        fields = ['name', 'email', 'description', 'category', 'subcategory']
+        fields = ['name', 'email', 'description', 'category']
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),
             'email': forms.EmailInput(attrs={'class':'form-control'}),
             'category': forms.Select(attrs={'class':'form-select'}),
-            'subcategory': forms.Select(attrs={'class':'form-select'}) ,
             'description': forms.TextInput(attrs={'class':'form-control'}),
             }
+
+class peopleDeleteForm(forms.Form):
+    confirm = forms.BooleanField(label="Confirm deletion")
