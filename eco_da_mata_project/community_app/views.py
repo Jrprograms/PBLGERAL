@@ -4,9 +4,9 @@ from .forms import CommunityForm
 from django.http import HttpResponse
 
 # Create your views here.
-def create_community_view(request):
+def create_community_view(request):     #create
     if request.method == "POST":
-        form = CommunityForm(request.POST,request.FILES)
+        form = CommunityForm(request.POST, request.FILES) 
         if form.is_valid():
             form.save()
         return redirect ("RetrieveAllCommunityView")
@@ -15,11 +15,14 @@ def create_community_view(request):
         context = {"form": form}
         return render(request,"form.html",context)
 
-def retrieve_all_community_view(request):
+def retrieve_all_community_view(request):     #getall
     community = Community.objects.all()
     context = {"comunidades": community}
     return render(request,"index.html",context)
 
-def retrieve_community_view(request, community_id):
+def retrieve_community_view(request, community_id):     #get
     community = get_object_or_404(Community, pk = community_id)
     return HttpResponse(community.title + " " + str(community.id))
+
+def delete_community_view(request):   #delete (tem uma criança, nube, iniciante trabalhando aqui...pfvr sejam pacientes, eu vou chegar lá!
+    
