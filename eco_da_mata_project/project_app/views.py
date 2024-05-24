@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from .models import Project
 
-# Create your views here.
-projetos = Project.objects.all()
-
+#gets
 def getallprojects(request):
-    return render(request, 'projects.html', {'projetos': projetos})
+    projetos = Project.objects.all()
+    return render(request, 'project.html', {'projetos': projetos})
 
 def getproject(request, ID):
-     for projeto in projetos:
-          if projeto.id == ID:
-               return render(request, 'project.html', {'projeto': projeto})
+     projeto = Project.objects.filter(pk=int(ID))
+     return render(request, 'project.html', {'projeto': projeto})
+
+
+#delete
+
+def delproject(request):
+     pass
+
+

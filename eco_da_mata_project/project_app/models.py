@@ -8,7 +8,8 @@ from people_app.models import People
 class Project (models.Model):
 
     id = models.UUIDField(primary_key=True)
-    date = models.DateField()
+    start_date = models.DateField()
+    end_date = models.DateField()
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     link = models.URLField(max_length=200)
