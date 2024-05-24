@@ -6,11 +6,11 @@ from .models import People
 
 def getAllPeoples(request):
     pessoas = People.objects.all()
-    return render(request, 'index.html', context={'parceiros':pessoas})
+    return render(request, 'lista.html', context={'parceiros':pessoas})
 
 def getPeople(request, people_id): # Corrigir essa bomba
-    parceiro = get_object_or_404(People, pk=people_id)
-    return render(request, 'unique.html', context={'parceiro': parceiro})
+    parceiro = get_object_or_404(People, id=people_id)
+    return render(request, 'uniquePeople.html', context={'parceiro': parceiro})
 
 def createPeople(request): # corrigir também
     if request.method == 'POST':
@@ -27,8 +27,8 @@ def deletePeople(request,people_id): # e aqui
     if request.method == 'POST':
         form = forms.peopleDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['confirm']:
-            person.delete()
-            return redirect('person_list')  # Redirecione para a lista de pessoas ou outra página após a exclusão
+            form.delete()
+            return redirect('lista.html')  # Redirecione para a lista de pessoas ou outra página após a exclusão
     else:
         form = forms.peopleDeleteForm()
     return render(request, 'delete.html', {'form': form, 'person': person})
