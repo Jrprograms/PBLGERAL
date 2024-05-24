@@ -3,7 +3,9 @@ from .models import Community, New
 
 class CommunityForm(forms.ModelForm):
     class Meta:
-        model =Community 
+        model = Community 
         fields = ["title","category","foundation_date","visit_time","longitude","latitude","link","logo"]
 
 
+class CommunityDeleteForm(forms.Form):
+    Enviar = forms.BooleanField(label="Enviar Deleção")
