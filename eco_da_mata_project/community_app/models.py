@@ -4,7 +4,7 @@ import uuid
 
 class Community (models.Model):
 
-    category_choices =[
+    category_choices =[   
         ("COMMUNITY","Comunidade"),
         ("Tourist attraction","Ponto Turístico")] 
     
