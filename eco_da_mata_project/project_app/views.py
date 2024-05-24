@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from .models import Project
 
-#gets
-def getallprojects(request):
+
+def get_allprojects(request):
     projetos = Project.objects.all()
-    return render(request, 'project.html', {'projetos': projetos})
+    return render(request, 'project.html', {'Projetos': projetos})
 
-def getproject(request, ID):
-     projeto = Project.objects.filter(pk=int(ID))
-     return render(request, 'project.html', {'projeto': projeto})
-
-
-#delete
-
-def delproject(request):
-     pass
+def get_project(request, ID):
+     projeto = Project.objects.filter(pk=ID)
+     return render(request, 'project.html', {'Projetos': projeto})
 
 
+def delete_project(request, ID):
+     return render(request, 'delete.html', {'Projetos': projetos})
+
+def create_project(request):
+     return render(request, 'project.html', {'Projetos': projetos})
+
+
+def update_project(request, ID):
+     return render(request, 'project.html', {'Projetos': projetos})
