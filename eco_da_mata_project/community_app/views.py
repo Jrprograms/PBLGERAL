@@ -24,5 +24,11 @@ def retrieve_community_view(request, community_id):     #get
     community = get_object_or_404(Community, pk = community_id)
     return HttpResponse(community.title + " " + str(community.id))
 
-def delete_community_view(request):   #delete (tem uma criança, nube, iniciante trabalhando aqui...pfvr sejam pacientes, eu vou chegar lá!
+def delete_community_view(request, community_id):
+    if request.method == "POST":
+        community = get_object_or_404(Community, pk=community_id)
+        community.delete()
+        return redirect("RetrieveAllCommunityView")  
+    else:
+        return HttpResponseForbidden("Não é possível deletar esta comunidade")
     
