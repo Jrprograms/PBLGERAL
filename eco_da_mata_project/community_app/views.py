@@ -25,13 +25,13 @@ def retrieve_community_view(request, community_id):     #get
     return HttpResponse(community.title + " " + str(community.id))
 
 def delete_community_view(request, community_id):
-    if request.method == "POST":
-    community = get_object_or_404(Community, pk=community_id) #se der o erro ele para aqui ou exclui o nada?
+    community = get_object_or_404(Community, pk=community_id)
     if request.method == "POST":
         form = forms.CommunityDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['Enviar']:
             form.delete()
-        return redirect("RetrieveAllCommunityView")  
+            return redirect("RetrieveAllCommunityView")  
     else:
-        return HttpResponseForbidden("Não é possível deletar esta comunidade")
+        form = forms.CommunityDeleteForm()
+    return render(request, 'communityform_delete.html', {'form': form, 'community': community})
     
