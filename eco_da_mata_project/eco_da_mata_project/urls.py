@@ -22,10 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('community/', include('community_app.urls')),
     path('parceiros/', include('people_app.urls')),
-<<<<<<< HEAD
     path('projeto/', include('project_app.urls'))
-=======
     path('project/', include('project_app.urls')),
     path('events/', include('events_app.urls'))
->>>>>>> 7b9a69d (Atualização Eventos)
-]
+
