@@ -18,7 +18,6 @@ class People(models.Model):
     name = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(null=True, blank=True, max_length=200)
     description = models.CharField(max_length=100)
-    # icon = models.models.models.ImageField(_(""), upload_to=None, height_field=None, width_field=None, max_length=None)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     fk_subcategory = models.ForeignKey(Subcategorie, on_delete=models.CASCADE)
 

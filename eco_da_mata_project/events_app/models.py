@@ -1,14 +1,13 @@
 from django.db import models
-
+import random
 #Events an reviews entities:
 
-class Event(models.Model):
+class event(models.Model):
 
-    #test
-
+    id = random.randint(0, 999)#test
     title = models.CharField(max_length=50)
     body = models.CharField(max_length=300)
-    profile_image = models.ImageField(name='', width_field=30, height_field=30)
+    profile_image = models.ImageField()
     #__
 
     start_date = models.DateField()
@@ -28,20 +27,26 @@ class Event(models.Model):
     pdf_link = models.URLField(max_length=100)
     questionary_link = models.URLField(max_length=100)
     #--
-    category = models.CharField(max_length=20, choices=[
-    (1, "Feira"),
-    (2, "Festividade"),
-    (3, "Celebração")    
+    category = models.CharField(max_length=20 ,choices =[
+    ("F", "Feira"),
+    ("Ft", "Festividade"),
+    ("Cl", "Celebração")    
     ])
-    format = models.CharField(max_length=20,choices=[
-    (1, "Presencial"),
-    (2, "Virtual"),
-    (3, "Híbrido")
+    format = models.CharField(max_length=20 ,choices =[
+    ("P", "Presencial"),
+    ("V", "Virtual"),
+    ("H", "Híbrido")
     ])
     #__
     
     # fk_project = models.ForeignKey(None, on_delete=True)
 
-# class report(models.Model):
-#     pass
-#    #em construção ;)
+class review(models.Model):
+    title = models.CharField(max_length=50)
+    body = models.CharField(max_length=300)
+    author = models.CharField(max_length=100)
+    grade = models.CharField(max_length=20 ,choices=[
+        ("R", "Ruim"),
+        ("B", "Bom"),
+        ("Mb", "Muito bom")
+    ])
