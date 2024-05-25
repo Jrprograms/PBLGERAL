@@ -21,7 +21,7 @@ def create_project(request):
             form.save()
             return redirect('create_project')
      else:
-        form = forms.PeopleForm()
+        form = forms.ProjectForm()
         return render(request, 'create_project.html', {'form': form})
 
 
