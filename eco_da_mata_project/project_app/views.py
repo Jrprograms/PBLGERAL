@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Project
-
+from . import forms
 
 def get_allprojects(request):
     projetos = Project.objects.all()
@@ -12,13 +12,18 @@ def get_project(request, Project_ID):
 
 
 def delete_project(request, Project_ID):
-     projeto = Project.objects.filter(pk=Project_ID)
-     return render(request, 'delete_project.html', context={'Projetos': projeto})
+     pass
 
-# def create_project(request):
-#      return render(request, 'create_project.html', {'Projetos': projetos})
+def create_project(request):
+     if request.method == 'POST':
+        form = forms.ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('create_project')
+     else:
+        form = forms.PeopleForm()
+        return render(request, 'create_project.html', {'form': form})
 
 
 def update_project(request, Project_ID):
-     projeto = Project.objects.filter(pk=Project_ID)
-     return render(request, 'update_project.html', {'Projetos': projeto})
+     pass
