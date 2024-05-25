@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{Projeto.name}}</title>
+    <title>Lista de Projetos</title>
     <style>
         body {
             background: #3C1E19;
@@ -14,12 +14,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
         h1 {
             text-align: center
         }
         .container {
             width: 80%;
+            max-width: 800px;
             background: #193C1C;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 1);
@@ -35,6 +37,7 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+            transition: background 0.3s;
         }
         p {
             margin: 0;
@@ -44,14 +47,29 @@
 </head>
 <body>
     <div class="container">
-        <li>
-            <p>Nome: <span class="value">{{ Projeto.name }}</span></p>
-            <p>Inicio: <span class="value">{{ Projeto.start_date }}</span> - 
-            fim: <span class="value">{{ Projeto.end_date }}</span></p>
-            <p>Numero de telefone: <span class="value">{{ Projeto.phone_number }}</span></p>
-            <p>Email: <span class="value">{{ Projeto.email }}</span></p>
-            <p>Descrição: <span class="value">{{ projeto.description }}</p>
-        </li>
+        <h1>Lista de Projetos</h1>
+        <ul>
+            {% for Projeto in Projetos %}
+            <br>
+                <li>
+                    <p>Nome: <span class="value">{{ Projeto.name }}</span></p>
+                </li>
+                <li>
+                    <p>Data de inicio: <span class="value">{{ Projeto.start_date }}</span></p>
+                </li>
+                <li>
+                    <p>Data de terminio: <span class="value">{{ Projeto.end_date }}</span></p>
+                </li>
+                <li>
+                    <p>Descrição: <span class="value">{{ Projeto.description }}</span></p>
+                </li>
+                <li>
+                    <p>Numero de telefone: <span class="value">{{ Projeto.phone_number }}</span></p>
+                </li>
+                <li>
+                    <p>Email: <span class ="value">{{ Projeto.email }}</span></p>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
