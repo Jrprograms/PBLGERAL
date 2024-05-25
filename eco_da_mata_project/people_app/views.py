@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from . import forms
+from .forms import PeopleForm, peopleDeleteForm
 from .models import People
 
 # Create your views here.
@@ -9,26 +9,26 @@ def getAllPeoples(request):
     return render(request, 'lista.html', context={'parceiros':pessoas})
 
 def getPeople(request, people_id): # Corrigir essa bomba
-    parceiro = get_object_or_404(People, id=people_id)
+    parceiro = get_object_or_404(People, pk=people_id)
     return render(request, 'uniquePeople.html', context={'parceiro': parceiro})
 
-def createPeople(request): # corrigir também
+def createPeople(request):
     if request.method == 'POST':
-        form = forms.PeopleForm(request.POST)
+        form = PeopleForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('createPeople')
     else:
-        form = forms.PeopleForm()
-        return render(request, 'create.html', {'form': form})
+        form = PeopleForm()
+    return render(request, 'create.html', {'form': form})
 
 def deletePeople(request,people_id): # e aqui
     person = get_object_or_404(People, id=people_id)
     if request.method == 'POST':
-        form = forms.peopleDeleteForm(request.POST)
+        form = peopleDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['confirm']:
             form.delete()
             return redirect('lista.html')  # Redirecione para a lista de pessoas ou outra página após a exclusão
     else:
-        form = forms.peopleDeleteForm()
+        form = peopleDeleteForm()
     return render(request, 'delete.html', {'form': form, 'person': person})
