@@ -15,7 +15,7 @@ class SubcategoryForm(forms.ModelForm):
             'category': forms.Select(attrs={'class':'form-select'})
             }
 
-class SubcategoryDeleteForm(forms.form):
+class SubcategoryDeleteForm(forms.Form):
     confirm = forms.BooleanField(label='delete subcategory?')
 
 class PeopleForm(forms.ModelForm):
