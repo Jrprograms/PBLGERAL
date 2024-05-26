@@ -8,7 +8,7 @@ def getAllPeoples(request):
     pessoas = People.objects.all()
     return render(request, 'lista.html', context={'parceiros':pessoas})
 
-def getPeople(request, people_id): # Corrigir essa bomba
+def getPeople(request, people_id):
     parceiro = get_object_or_404(People, pk=people_id)
     return render(request, 'uniquePeople.html', context={'parceiro': parceiro})
 
