@@ -22,7 +22,7 @@ def createPeople(request):
         form = PeopleForm()
     return render(request, 'create.html', context={'form': form})
 
-def deletePeople(request,people_id): # e aqui
+def deletePeople(request,people_id):
     people = get_object_or_404(People, pk=people_id)
     if request.method == 'POST':
         form = peopleDeleteForm(request.POST)
@@ -32,3 +32,4 @@ def deletePeople(request,people_id): # e aqui
     else:
         form = peopleDeleteForm()
     return render(request, 'delete.html', context={'form': form, 'people': people})
+
