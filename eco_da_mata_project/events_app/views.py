@@ -17,16 +17,31 @@ def create_event(request):
     else:
         form = event_form()
         context = {"form": form}
-        return render(request,"eventform.html",context)
-    
+        return render(request,"event_form.html",context)
+
+
 def get_events(request):
     events = Event.objects.all()
     context = {"events": events}
-    return render(request,"eventindex.html",context)
+    return render(request,"event_list.html",context)
+
 
 def get_single_event(request, event_id): 
     event = get_object_or_404(Event, pk = event_id)
-    return render(request, "singleevent.html", {"event":Event})
+    return render(request, "single_event.html", {"event":event})
+
+
+def edit_event(request, event_id):
+    event = get_object_or_404(Event, id=event_id)
+    if request.method == 'POST':
+        form = event_form(request.POST, request.FILES, instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect('../../list/', event_id=event.id)
+    else:
+        form = event_form(instance=event)
+    return render(request, 'edit_event.html', {'form': form, 'event': event})
+
 
 def delete_event(request, event_id):
     event = get_object_or_404(Event, id=event_id)

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Evento</title>
+</head>
+<body>
+    <h1>Editar evento: {{ event.title }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar mudanças</button>
+    </form>
+    <a href="{% url 'get_single_event' event.id %}">Cancel</a>
+</body>
+</html>
