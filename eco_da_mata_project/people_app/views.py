@@ -23,12 +23,12 @@ def createPeople(request):
     return render(request, 'create.html', context={'form': form})
 
 def deletePeople(request,people_id): # e aqui
-    person = get_object_or_404(People, id=people_id)
+    people = get_object_or_404(People, pk=people_id)
     if request.method == 'POST':
         form = peopleDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['confirm']:
-            form.delete()
-            return redirect('lista.html')  # Redirecione para a lista de pessoas ou outra página após a exclusão
+            people.delete()
+            return redirect('../../')  # Redirecione para a lista de pessoas ou outra página após a exclusão
     else:
         form = peopleDeleteForm()
-    return render(request, 'delete.html', context={'form': form, 'person': person})
+    return render(request, 'delete.html', context={'form': form, 'people': people})
