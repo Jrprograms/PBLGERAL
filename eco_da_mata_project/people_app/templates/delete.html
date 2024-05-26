@@ -6,7 +6,7 @@
     <title>Deletar usuário</title>
 </head>
 <body>
-    <h1>Deseja mesmo deletar o/a {{ person.name }}?</h1>
+    <h1>Deseja mesmo deletar o/a {{ people.name.username }}?</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
