@@ -7,4 +7,5 @@ urlpatterns = [
     path('<int:people_id>/delete/', views.deletePeople),
     path('create/', views.createPeople),
     path('create/subcategory', views.createSubcategory),
+    path('subcategory/delete/<int:subcategory_id>', views.deleteSubcategory)
 ]
