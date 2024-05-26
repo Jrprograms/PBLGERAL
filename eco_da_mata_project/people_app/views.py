@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import PeopleForm, peopleDeleteForm, SubcategoryForm
-from .models import People
+from .forms import PeopleForm, peopleDeleteForm, SubcategoryForm, SubcategoryDeleteForm
+from .models import People, Subcategorie
 
 # Create your views here.
 
@@ -43,3 +43,13 @@ def createSubcategory(request):
         form = SubcategoryForm()
     return render(request, 'createSubcategory.html', context={'form':form})
 
+def deleteSubcategory(request, subcategory_id):
+    subcategory = get_object_or_404(Subcategorie, pk=subcategory_id)
+    if request.method == 'POST':
+        form = SubcategoryDeleteForm(request.POST)
+        if form.is_valid() and form.cleaned_data['confirm']:
+            subcategory.delete()
+            return redirect('../../')
+    else:
+        form = SubcategoryDeleteForm()
+    return render(request, 'deleteSubcategory.html', context={'form':form, 'subcategory':subcategory})
