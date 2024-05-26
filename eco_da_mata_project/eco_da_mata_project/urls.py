@@ -23,6 +23,5 @@ urlpatterns = [
     path('community/', include('community_app.urls')),
     path('parceiros/', include('people_app.urls')),
     path('projeto/', include('project_app.urls')),
-    path('project/', include('project_app.urls')),
     path('events/', include('events_app.urls'))
 ]

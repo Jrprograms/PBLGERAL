@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{Projeto.name}}</title>
+    <style>
+        body {
+            background: #3C1E19;
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            text-align: center
+        }
+        .container {
+            width: 80%;
+            background: #193C1C;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+            padding: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #6f2232;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+        }
+        p {
+            margin: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <li>
+            <p>Nome: <span class="value">{{ Projeto.name }}</span></p>
+            <p>Inicio: <span class="value">{{ Projeto.start_date }}</span> - 
+            fim: <span class="value">{{ Projeto.end_date }}</span></p>
+            <p>Numero de telefone: <span class="value">{{ Projeto.phone_number }}</span></p>
+            <p>Email: <span class="value">{{ Projeto.email }}</span></p>
+            <p>Descrição: <span class="value">{{ projeto.description }}</p>
+        </li>
+    </div>
+</body>
+</html>
