@@ -8,12 +8,12 @@
     <p><strong>Body:</strong> {{ event.body }}</p>
     {% if event.profile_image %}
         <p><strong>Profile Image:</strong><br>
-        <img src="{{ event.profile_image.url }}" alt="{{ event.title }}"></p>
+        <img src="{{ event.profile_image.url }}" alt="{{ event.title }}" width="300" height="200" ></p>
     {% endif %}
     <p><strong>Start Date:</strong> {{ event.start_date }}</p>
     <p><strong>End Date:</strong> {{ event.end_date }}</p>
     <p><strong>Time:</strong> {{ event.time }}</p>
-    <p><strong>Address:</strong> {{ event.address }}</p>
+    <p><strong>Address:</strong> {{ event.adress }}</p>
     <p><strong>Location:</strong> {{ event.location }}</p>
     <p><strong>Link:</strong> <a href="{{ event.link }}">{{ event.link }}</a></p>
     <p><strong>Value:</strong> {{ event.value }}</p>
@@ -24,5 +24,15 @@
     <p><strong>Questionary Link:</strong> <a href="{{ event.questionary_link }}">{{ event.questionary_link }}</a></p>
     <p><strong>Category:</strong> {{ event.get_category_display }}</p>
     <p><strong>Format:</strong> {{ event.get_format_display }}</p>
+    
+    <form action="{% url 'edit_event' event.id %}" method="get" style="display:inline;">
+        <button type="submit">Editar evento</button>
+    </form>
+    <form action="{% url 'delete_event' event.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">Excluir evento</button>
+    </form>
+    <br>
+    <a href="{% url 'get_events' %}">Voltar para a lista</a>
 </body>
 </html>
