@@ -15,6 +15,9 @@ class SubcategoryForm(forms.ModelForm):
             'category': forms.Select(attrs={'class':'form-select'})
             }
 
+class SubcategoryDeleteForm(forms.form):
+    confirm = forms.BooleanField(label='delete subcategory?')
+
 class PeopleForm(forms.ModelForm):
     class Meta:
         model = People
@@ -31,4 +34,4 @@ class PeopleForm(forms.ModelForm):
         self.fields['fk_subcategory'].queryset = Subcategorie.objects.all()
 
 class peopleDeleteForm(forms.Form):
-    confirm = forms.BooleanField(label="Confirm deletion")
+    confirm = forms.BooleanField(label="Delete people?")
