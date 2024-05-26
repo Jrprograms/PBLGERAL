@@ -20,7 +20,7 @@ def createPeople(request):
             return redirect('createPeople')
     else:
         form = PeopleForm()
-    return render(request, 'create.html', {'form': form})
+    return render(request, 'create.html', context={'form': form})
 
 def deletePeople(request,people_id): # e aqui
     person = get_object_or_404(People, id=people_id)
@@ -31,4 +31,4 @@ def deletePeople(request,people_id): # e aqui
             return redirect('lista.html')  # Redirecione para a lista de pessoas ou outra página após a exclusão
     else:
         form = peopleDeleteForm()
-    return render(request, 'delete.html', {'form': form, 'person': person})
+    return render(request, 'delete.html', context={'form': form, 'person': person})
