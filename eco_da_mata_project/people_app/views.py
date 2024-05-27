@@ -17,7 +17,7 @@ def createPeople(request):
         form = PeopleForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('createPeople')
+            return redirect('../')
     else:
         form = PeopleForm()
     return render(request, 'create.html', context={'form': form})
