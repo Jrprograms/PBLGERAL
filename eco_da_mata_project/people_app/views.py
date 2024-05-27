@@ -22,6 +22,16 @@ def createPeople(request):
         form = PeopleForm()
     return render(request, 'create.html', context={'form': form})
 
+def updatePeople(request, people_id):
+    people = get_object_or_404(People, pk=people_id)
+    if request.method == 'POST':
+        form = PeopleForm(request.POST, instance=people)
+        if form.is_valid():
+            form.save()
+            return redirect('../')
+    else:
+        form = PeopleForm(instance=people)
+    return render(request, 'update.html', context={'form':form})
 def deletePeople(request,people_id):
     people = get_object_or_404(People, pk=people_id)
     if request.method == 'POST':
