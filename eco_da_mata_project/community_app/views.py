@@ -13,7 +13,7 @@ def create_community_view(request):     #create
     else:
         form = CommunityForm()
         context = {"form": form}
-        return render(request,"form.html",context)
+        return render(request,"form.html", context)
 
 def retrieve_all_community_view(request):     #getall
     community = Community.objects.all()
@@ -24,13 +24,13 @@ def retrieve_community_view(request, community_id):     #get
     community = get_object_or_404(Community, pk = community_id)
     return HttpResponse(community.title + " " + str(community.id))
 
-def delete_community_view(request, community_id):
+def delete_community_view(request, community_id): #delete
     community = get_object_or_404(Community, pk=community_id)
     if request.method == "POST":
         form = forms.CommunityDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['Enviar']:
             form.delete()
-            return redirect("RetrieveAllCommunityView")  
+            return redirect("index.html")  
     else:
         form = forms.CommunityDeleteForm()
     return render(request, 'communityform_delete.html', {'form': form, 'community': community})
