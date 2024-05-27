@@ -6,12 +6,15 @@
 </head>
 <body>
     <h1>Eventos</h1>
+    <form action="{% url 'create_event' %}" method="get" style="display:inline;">
+        <button type="submit" class="btn btn-primary">Criar novo evento</button>
+    </form>
     <ul>
         {% for event in events %}
             <li>
                 <h2>{{ event.title }}</h2>
-                {% if event.profile_image %}
-                    <img src="{{ event.profile_image }}" alt="{{ event.title }}">
+                {% if event %}
+                    <img src="{{ event.profile_image }}" alt="{{ event.id }}">
                 {% endif %}
         
             </li>

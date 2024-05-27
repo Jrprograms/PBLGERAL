@@ -2,12 +2,12 @@ from django.db import models
 import random
 #Events an reviews entities:
 
-class event(models.Model):
+class Event(models.Model):
 
     id = random.randint(0, 999)#test
     title = models.CharField(max_length=50)
     body = models.CharField(max_length=300)
-    profile_image = models.ImageField()
+    profile_image = models.ImageField(upload_to="media/events/")
     #__
 
     start_date = models.DateField()
