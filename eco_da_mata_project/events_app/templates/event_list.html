@@ -12,11 +12,12 @@
     <ul>
         {% for event in events %}
             <li>
-                <h2>{{ event.title }}</h2>
-                {% if event %}
-                    <img src="{{ event.profile_image }}" alt="{{ event.id }}">
+                <h2>
+                    <a href="{% url 'get_single_event' event.id %}">{{ event.title }}</a>
+                </h2>
+                {% if event.profile_image %}
+                    <img src="{{ event.profile_image.url }}" alt="{{ event.id }}" width="300" height="150">
                 {% endif %}
-        
             </li>
         {% empty %}
             <li>Nenhum evento encontrado.</li>

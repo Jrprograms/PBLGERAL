@@ -10,6 +10,8 @@
         {{ form.as_p }}
         <button type="submit">Salvar mudanças</button>
     </form>
-    <a href="{% url 'get_single_event' event.id %}">Cancel</a>
+    <form action="{% url 'get_single_event' event.id %}" method="get" style="display:inline;">
+        <button type="submit" style="background-color: #f44336; border: none; color: white; padding: 10px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 10px;">Cancelar</button>
+    </form>
 </body>
 </html>

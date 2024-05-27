@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 # É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
 urlpatterns = [
@@ -25,3 +27,6 @@ urlpatterns = [
     path('projeto/', include('project_app.urls')),
     path('events/', include('events_app.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
