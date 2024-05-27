@@ -17,10 +17,21 @@ def createPeople(request):
         form = PeopleForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('createPeople')
+            return redirect('../')
     else:
         form = PeopleForm()
     return render(request, 'create.html', context={'form': form})
+
+def updatePeople(request, people_id):
+    people = get_object_or_404(People, pk=people_id)
+    if request.method == 'POST':
+        form = PeopleForm(request.POST, instance=people)
+        if form.is_valid():
+            form.save()
+            return redirect('../')
+    else:
+        form = PeopleForm(instance=people)
+    return render(request, 'update.html', context={'form':form})
 
 def deletePeople(request,people_id):
     people = get_object_or_404(People, pk=people_id)
@@ -43,13 +54,24 @@ def createSubcategory(request):
         form = SubcategoryForm()
     return render(request, 'createSubcategory.html', context={'form':form})
 
+def updateSubcategory(request, subcategory_id):
+    subcategory = get_object_or_404(Subcategorie, pk=subcategory_id)
+    if request.method == 'POST':
+        form = SubcategoryForm(request.POST, instance=subcategory)
+        if form.is_valid():
+            form.save()
+            return redirect('../../../')
+    else:
+        form = SubcategoryForm(instance=subcategory)
+    return render(request, 'updateSubcategory.html', context={'form':form})
+
 def deleteSubcategory(request, subcategory_id):
     subcategory = get_object_or_404(Subcategorie, pk=subcategory_id)
     if request.method == 'POST':
         form = SubcategoryDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['confirm']:
             subcategory.delete()
-            return redirect('../../')
+            return redirect('../../../')
     else:
         form = SubcategoryDeleteForm()
     return render(request, 'deleteSubcategory.html', context={'form':form, 'subcategory':subcategory})

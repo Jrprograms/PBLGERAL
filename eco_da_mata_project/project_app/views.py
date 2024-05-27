@@ -15,14 +15,15 @@ def delete_project(request, Project_ID):
      pass
 
 def create_project(request):
-     if request.method == 'POST':
+     if request.method == 'post':
         form = forms.ProjectForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('create_project')
+            return redirect(f'')
      else:
         form = forms.ProjectForm()
-        return render(request, 'create_project.html', {'form': form})
+        contexto = {'form': form}
+        return render(request, 'create_project.html', context=contexto)
 
 
 def update_project(request, Project_ID):

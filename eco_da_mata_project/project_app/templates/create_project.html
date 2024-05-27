@@ -55,7 +55,8 @@
 </head>
 <body>
     <h2> Criar Projeto</h2>
-    <form action="/projeto/" method="POST">
+    <form action="/projeto/" method="post">
+        {% csrf_token %}
        
         <div class="form-group">
             <label for="name">Nome:</label>
