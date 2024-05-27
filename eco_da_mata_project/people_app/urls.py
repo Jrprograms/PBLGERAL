@@ -8,5 +8,6 @@ urlpatterns = [
     path('<int:people_id>/delete/', views.deletePeople),
     path('create/', views.createPeople, name='createPeople'),
     path('create/subcategory', views.createSubcategory),
+    path('subcategory/update/<int:subcategory_id>/', views.updateSubcategory),
     path('subcategory/delete/<int:subcategory_id>/', views.deleteSubcategory)
 ]
