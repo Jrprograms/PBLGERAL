@@ -16,7 +16,7 @@ class Subcategorie(models.Model):
         return self.name
 
 class People(models.Model):
-    name = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
     email = models.EmailField(max_length=200, null=False, default='example@example.com')
     description = models.CharField(max_length=100)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
