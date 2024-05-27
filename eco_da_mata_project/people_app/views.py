@@ -32,6 +32,7 @@ def updatePeople(request, people_id):
     else:
         form = PeopleForm(instance=people)
     return render(request, 'update.html', context={'form':form})
+
 def deletePeople(request,people_id):
     people = get_object_or_404(People, pk=people_id)
     if request.method == 'POST':
