@@ -21,7 +21,7 @@ class Community (models.Model):
     def __str__(self):
         return self.title + " " + self.category
 
-class New (models.Model):
+class New(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     id_community = models.ForeignKey(Community, on_delete=models.CASCADE) 
