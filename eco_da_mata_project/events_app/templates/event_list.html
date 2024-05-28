@@ -7,7 +7,7 @@
 <body>
     <h1>Eventos</h1>
     <form action="{% url 'create_event' %}" method="get" style="display:inline;">
-        <button type="submit" class="btn btn-primary">Criar novo evento</button>
+        <button type="submit" style="background-color: #00e41e; border: none; color: rgb(0, 0, 0); padding: 10px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 10px;">+ Criar novo evento</button>
     </form>
     <ul>
         {% for event in events %}
@@ -16,7 +16,7 @@
                     <a href="{% url 'get_single_event' event.id %}">{{ event.title }}</a>
                 </h2>
                 {% if event.profile_image %}
-                    <img src="{{ event.profile_image.url }}" alt="{{ event.id }}" width="300" height="150">
+                    <img src="{{ event.profile_image.url }}" width="300" height="150">
                 {% endif %}
             </li>
         {% empty %}
