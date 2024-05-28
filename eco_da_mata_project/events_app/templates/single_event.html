@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ event.title }}</title>
+</head>
+<body>
+    <h1>{{ event.title }}</h1>
+    {% if event.profile_image %}
+        <img src="{{ event.profile_image.url }}" alt="{{ event.title }}" width="550" height="250"></p>
+    {% endif %}
+    <p><strong>Descrição:</strong> {{ event.body }}</p>
+    <p><strong>Data de Início:</strong> {{ event.begin_date }} | <strong>Data de Término:</strong> {{ event.end_date }}</p>
+    <p><strong>Endereço:</strong> {{ event.address }} | <strong>Local:</strong> {{ event.location }}</p>
+    <p><strong>Horário:</strong> {{ event.time }}</p>
+    <p><strong>Valor: </strong>R${{ event.value }}</p>
+    <p><strong>Chave Pix:</strong> {{ event.pix_key }}</p>
+    <p><strong>Proprietário da Chave Pix:</strong> {{ event.pix_key_owner }}</p>
+    <p><strong>Nome do Banco:</strong> {{ event.bank_name }}</p>
+    <p><strong>Link do PDF:</strong> <a href="{{ event.pdf_link }}">{{ event.pdf_link }}</a></p>
+    <p><strong>Link do Questionário:</strong> <a href="{{ event.questionary_link }}">{{ event.questionary_link }}</a></p>
+    <p><strong>Link:</strong> <a href="{{ event.link }}">{{ event.link }}</a></p>
+    <p><strong>Categoria:</strong> {{ event.get_category_display }}</p>
+    <p><strong>Formato:</strong> {{ event.get_format_display }}</p>
+    
+
+</form>
+
+    <form action="{% url 'get_events' %}" method="get" style="display:inline;">
+        <button type="submit" style="background-color: #494949; border: none; color: white; padding: 10px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 10px;">Voltar para a lista</button>
+    </form>
+    <form action="{% url 'edit_event' event.id %}" method="get" style="display:inline;">
+        <button type="submit" style="background-color: #2024ff; border: none; color: white; padding: 10px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 10px;">Editar</button>
+    </form>
+    <form action="{% url 'delete_event' event.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" style="background-color: #ff0000; border: none; color: white; padding: 10px 24px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 10px;">Excluir</button>
+    </form>
+</body> 
+</html>

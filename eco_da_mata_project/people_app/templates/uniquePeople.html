@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{pessoa.name.username}}</title>
+    <title>{{pessoa.name}}</title>
     <style>
         body {
             background: #3C1E19;
@@ -45,10 +45,11 @@
 <body>
     <div class="container">
         <li>
-            <p>Nome: <span class="value">{{ pessoa.name.username }}</span></p>
-            <p>Categoria: <span class="value">{{ pessoa.category }}</span> -
-            Subcategoria: <span class="value">{{ pessoa.fk_subcategory.name }}</span></p>
-            <p>Descrição: <span class="value">{{ pessoa.description }}</p>
+            <p>Nome: <span class="value">{{ parceiro.name }}</span> - 
+            Email: <span class='value'>{{ parceiro.email }}</span></p>
+            <p>Categoria: <span class="value">{{ parceiro.category }}</span> -
+            Subcategoria: <span class="value">{{ parceiro.fk_subcategory.name }}</span></p>
+            <p>Descrição: <span class="value">{{ parceiro.description }}</p>
         </li>
     </div>
 </body>
