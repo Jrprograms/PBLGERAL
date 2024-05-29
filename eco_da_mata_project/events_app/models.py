@@ -43,11 +43,11 @@ class Event(models.Model):
     # fk_project = models.ForeignKey(None, on_delete=True)
 
 class review(models.Model):
-    title = models.CharField(max_length=50)
-    body = models.CharField(max_length=300)
+    title = models.CharField(max_length=50,verbose_name="Título")
+    body = models.CharField(max_length=300, verbose_name="Mensagem")
     author = models.CharField(max_length=100)
     grade = models.CharField(max_length=20 ,choices=[
     ("R", "Ruim"),
     ("B", "Bom"),
     ("Mb", "Muito bom")
-    ])
+    ], verbose_name="Avaliação")
