@@ -1,4 +1,5 @@
 from django.db import models
+from project_app.models import Project
 import uuid
 
 #Events an reviews entities:
@@ -40,7 +41,7 @@ class Event(models.Model):
     ])
     #__
     
-    # fk_project = models.ForeignKey(None, on_delete=True)
+    fk_project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name="Associado ao projeto")
 
 class review(models.Model):
     title = models.CharField(max_length=50)
