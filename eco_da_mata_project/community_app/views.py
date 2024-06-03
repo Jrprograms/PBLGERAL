@@ -2,6 +2,12 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .models import Community, New
 from .forms import CommunityForm
 from django.http import HttpResponse
+from rest_framework import viewsets
+from .serializers import CommunitySerializer
+
+classs CommunityViewSet(viewsets.ModelSertializer)
+    queryset = Community.objects.all()
+    serializer_class = CommnuitySerializer()
 
 # Create your views here.
 def create_community_view(request):
