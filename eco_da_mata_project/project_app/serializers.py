@@ -4,4 +4,4 @@ from .models import Project
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         Model = Project
-        fields = ['']
+        fields = '__all__'
