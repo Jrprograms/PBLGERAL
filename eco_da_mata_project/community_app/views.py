@@ -5,9 +5,9 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from .serializers import CommunitySerializer
 
-classs CommunityViewSet(viewsets.ModelSertializer)
+class CommunityViewSet(viewsets.ReadOnlyModelViewSet)
     queryset = Community.objects.all()
-    serializer_class = CommnuitySerializer()
+    serializer_class = CommnuitySerializer
 
 # Create your views here.
 def create_community_view(request):     
