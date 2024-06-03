@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excluir evento</title>
+</head>
+<body>
+    <h2>Tem certeza que quer excluir o evento "{{ event.title }}"?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim</button>
+    </form>
+</body>
+</html>

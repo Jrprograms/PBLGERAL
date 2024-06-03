@@ -1,9 +1,9 @@
+<!-- templates/edit.html -->
 <!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Parceiros</title>
+    <title>Edit People</title>
     <style>
         body {
             background: #3C1E19;
@@ -46,25 +46,13 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Lista de Parceiros</h1>
-        <ul>
-            {% for pessoa in pessoas %}
-            <br>
-                <li>
-                    <p>Nome: <span class="value">{{ pessoa.name.username }}</span></p>
-                </li>
-                <li>
-                    <p>Descrição: <span class="value">{{ pessoa.description }}</span></p>
-                </li>
-                <li>
-                    <p>Categoria: <span class="value">{{ pessoa.category }}</span></p>
-                </li>
-                <li>
-                    <p>Subcategoria: <span class="value">{{ pessoa.fk_subcategory.name }}</span></p>
-                </li>
-            {% endfor %}
-        </ul>
+    <div class='container'>
+        <h1>Edit People</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save changes</button>
+        </form>
     </div>
 </body>
 </html>

@@ -1,47 +1,54 @@
 from django.db import models
+from project_app.models import Project
+import uuid
 
 #Events an reviews entities:
 
 class Event(models.Model):
 
-    #test
-
-    title = models.CharField(max_length=50)
-    body = models.CharField(max_length=300)
-    profile_image = models.ImageField(name='', width_field=30, height_field=30)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, auto_created=True, editable=False)
+    title = models.CharField(max_length=50, verbose_name="Título")
+    body = models.CharField(max_length=300, verbose_name="Descrição")
+    profile_image = models.ImageField(upload_to="media/events/", verbose_name="Imagem de perfil")
     #__
 
-    start_date = models.DateField()
-    end_date = models.DateField()
-    time = models.TimeField()
-    adress = models.CharField(max_length=100)
-    location = models.CharField(max_length=100)
+    begin_date = models.DateField(verbose_name="Data de início")
+    end_date = models.DateField(verbose_name="Data de fim")
+    time = models.TimeField(verbose_name="Horário")
+    address = models.CharField(max_length=100, verbose_name="Endereço")
+    location = models.CharField(max_length=100, verbose_name="Localização")
     #__
 
-    link = models.URLField(unique=True)
-    value = models.DecimalField(decimal_places=2,max_digits=10)
-    pix_key = models.URLField(max_length=100) 
-    pix_key_owner = models.CharField(max_length=100)
-    bank_name = models.CharField(max_length=100)
+    link = models.URLField(verbose_name="Link")
+    value = models.DecimalField(decimal_places=2,max_digits=10, verbose_name="Valor")
+    pix_key = models.URLField(max_length=100, verbose_name="Chave PIX") 
+    pix_key_owner = models.CharField(max_length=100, verbose_name="Dono da chave PIX")
+    bank_name = models.CharField(max_length=100, verbose_name="Banco")
     #__
 
-    pdf_link = models.URLField(max_length=100)
-    questionary_link = models.URLField(max_length=100)
+    pdf_link = models.URLField(max_length=100, null=True, verbose_name="Link para PDF")
+    questionary_link = models.URLField(max_length=100, null=True, verbose_name="Link para questionário")
     #--
-    category = models.CharField(max_length=20, choices=[
-    (1, "Feira"),
-    (2, "Festividade"),
-    (3, "Celebração")    
+    category = models.CharField(max_length=20,default="Vazio" ,choices =[
+    ("F", "Feira"),
+    ("Ft", "Festividade"),
+    ("Cl", "Celebração")    
     ])
-    format = models.CharField(max_length=20,choices=[
-    (1, "Presencial"),
-    (2, "Virtual"),
-    (3, "Híbrido")
+    format = models.CharField(max_length=20, default="Vazio" ,choices =[
+    ("P", "Presencial"),
+    ("V", "Virtual"),
+    ("H", "Híbrido")
     ])
     #__
     
-    # fk_project = models.ForeignKey(None, on_delete=True)
+    fk_project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name="Associado ao projeto")
 
-# class report(models.Model):
-#     pass
-#    #em construção ;)
+class review(models.Model):
+    title = models.CharField(max_length=50,verbose_name="Título")
+    body = models.CharField(max_length=300, verbose_name="Mensagem")
+    author = models.CharField(max_length=100)
+    grade = models.CharField(max_length=20 ,choices=[
+    ("R", "Ruim"),
+    ("B", "Bom"),
+    ("Mb", "Muito bom")
+    ], verbose_name="Avaliação")

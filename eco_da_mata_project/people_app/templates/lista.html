@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Parceiros</title>
+    <style>
+        body {
+            background: #3C1E19;
+            color: #FFFFFF;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background: #193C1C;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+            padding: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #6f2232;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 2);
+            transition: background 0.3s;
+        }
+        p {
+            margin: 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Parceiros</h1>
+        <ul>
+            {% for parceiro in parceiros %}
+            <br>
+                <li>
+                    <p>Nome: <span class="value">{{ parceiro.name }}</span></p>
+                    <br>
+                    <p>Categoria: <span class="value">{{ parceiro.category }}</span> -
+                    Subcategoria: <span class="value">{{ parceiro.fk_subcategory.name }}</span></p>
+                    <p> id: <span class='value'>{{ parceiro.id }}</span> </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
