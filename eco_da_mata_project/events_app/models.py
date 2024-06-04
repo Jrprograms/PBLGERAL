@@ -41,7 +41,7 @@ class Event(models.Model):
     ])
     #__
     
-    fk_project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name="Associado ao projeto")
+    fk_project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name="Associado ao projeto", null=True)
 
 class review(models.Model):
     title = models.CharField(max_length=50,verbose_name="Título")
