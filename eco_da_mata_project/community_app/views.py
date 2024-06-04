@@ -1,13 +1,13 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Community, New
-from .forms import CommunityForm
+from .forms import CommunityForm, CommunityDeleteForm
 from django.http import HttpResponse
 from rest_framework import viewsets
 from .serializers import CommunitySerializer
 
-class CommunityViewSet(viewsets.ReadOnlyModelViewSet)
+class CommunityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Community.objects.all()
-    serializer_class = CommnuitySerializer
+    serializer_class = CommunitySerializer
 
 # Create your views here.
 def create_community_view(request):     
@@ -45,11 +45,11 @@ def update_community_view(request, community_id):
 def delete_community_view(request, community_id): 
     community = get_object_or_404(Community, pk=community_id)
     if request.method == "POST":
-        form = forms.CommunityDeleteForm(request.POST)
+        form = CommunityDeleteForm(request.POST)
         if form.is_valid() and form.cleaned_data['Enviar']:
             form.delete()
             return redirect("index.html")  
     else:
-        form = forms.CommunityDeleteForm()
+        form = CommunityDeleteForm()
     return render(request, 'communityform_delete.html', {'form': form, 'community': community})
     
