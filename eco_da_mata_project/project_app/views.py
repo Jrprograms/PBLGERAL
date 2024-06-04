@@ -4,6 +4,10 @@ from . import forms
 from rest_framework import viewsets
 from .serializers import ProjectSerializer
 
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
 def get_allprojects(request):
     projetos = Project.objects.all()
     return render(request, 'index_projects.html', context={'Projetos': projetos})
@@ -37,6 +41,3 @@ def update_project(request, Project_ID):
         form = forms.ProjectForm()
     return render(request, 'update_project.html', context={'Projeto': projeto})
 
-def ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
-    serializer_class = ProjectSerializer
