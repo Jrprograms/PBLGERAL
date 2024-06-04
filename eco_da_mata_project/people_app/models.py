@@ -22,6 +22,8 @@ class People(models.Model):
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     fk_subcategory = models.ForeignKey(Subcategorie, on_delete=models.CASCADE)
     id = models.IntegerField(auto_created=True, null=False, blank=False, primary_key=True)
+    photo = models.ImageField(upload_to='photos/', null=True)
+    link = models.URLField(max_length=200, null=True)
 
     def __str__(self):
         return self.name.username
