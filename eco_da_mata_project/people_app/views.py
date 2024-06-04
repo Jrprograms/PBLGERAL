@@ -1,8 +1,18 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from rest_framework import viewsets
 from .forms import PeopleForm, peopleDeleteForm, SubcategoryForm, SubcategoryDeleteForm
 from .models import People, Subcategorie
+from .serializer import PeopleSerializer, SubcategorySerializer
 
 # Create your views here.
+
+class PeopleViewSet(viewsets.ModelViewSet):
+    queryset = People.objects.all()
+    serializer_class = PeopleSerializer()
+
+class SubcategoryViewSet(viewsets.ModelViewSet):
+    queryset = Subcategorie.objects.all()
+    serializer_class = SubcategorySerializer()
 
 def getAllPeoples(request):
     pessoas = People.objects.all()

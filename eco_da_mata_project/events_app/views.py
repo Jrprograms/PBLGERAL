@@ -1,7 +1,13 @@
 from django.shortcuts import render,redirect,get_object_or_404, HttpResponse
 from .models import Event
 from .forms import event_form, deleteeventform
+from rest_framework import viewsets
+from .serializers import EventSerializer
 
+
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
 # Create your views here.
 
