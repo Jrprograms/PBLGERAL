@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css\reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css\style.css' %}" />
+
+    <title>Lista de Comunidades</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Comunidade {{comunidade.title}}</h1>
+      <div class="info_container">
+        <img class = "image" src="{{comunidade.logo.url}}" alt="Logo da comunidade" />
+        <p>Categoria: {{comunidade.category}}</p>
+        <p>Data de Fundação: {{comunidade.foundation_date}}</p>
+        <p>Horário de Visitação: {{comunidade.visit_time}}</p>
+        <p>Longitude: {{comunidade.longitude}}</p>
+        <p>Latitude: {{comunidade.latitude}}</p>
+        <p>Link: <a href="{{comunidade.link}}">{{comunidade.link}}</a></p>
+      </div>
+      <div>
+        <a href="{% url 'update_community_view' comunidade.id %}"
+          ><button>Editar</button></a
+        >
+        <a href="{% url 'delete_community_view' comunidade.id %}"
+          ><button>Delete</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>

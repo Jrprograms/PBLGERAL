@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css\reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css\style.css' %}">
+
+    <title>Teste</title>
+</head>
+<body>
+    <div class = "container">
+        <h1>Lista de Comunidades</h1>
+        <ul>
+            {% for comunidade in comunidades %}
+                  <li  class ="list-item" ><a href = "{% url 'retrieve_community_view' comunidade.id %}">{{comunidade}}</a><li>
+                <hr>
+            {% endfor %}
+        </ul>
+        <button class = "button">
+            <a href = "{% url 'create_community_view' %}">Criar comunidade</a>
+        </button>
+    </div>
+</body>
+</html>

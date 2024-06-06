@@ -10,11 +10,16 @@
     <title>Atualizando Comunidade</title>    
 </head>
 <body>
+    <div class = "container">
     <h1>Atualizando Comunidade</h1>    
     <form method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
-        {{ form.as_p }} 
-        <button type="submit">Enviar</button>
+    <div class = "Meio-container">
+        <img src="{{ form.instance.logo.url }}" alt="Current profile image">
+            {% csrf_token %}
+            {{ form.as_p }} 
+        </div>
+            <button type="submit">Enviar</button>
+        </div>
     </form>
 </body>
 </html>

@@ -15,20 +15,20 @@ def create_community_view(request):
         form = CommunityForm(request.POST, request.FILES) 
         if form.is_valid():
             form.save()
-        return redirect ("RetrieveAllCommunityView")
+        return redirect ("retrieve_all_community_view")
     else:
         form = CommunityForm()
-        context = {"form": form}
-        return render(request,"form.html", context)
+        return render(request,"community_form_create.html", context = {"form": form})
 
 def retrieve_all_community_view(request):    
     community = Community.objects.all()
-    context = {"comunidades": community}
-    return render(request,"index.html",context)
+    return render(request,"community_index.html",context = {"comunidades": community})
 
 def retrieve_community_view(request, community_id):     
     community = get_object_or_404(Community, pk = community_id)
-    return HttpResponse(community.title + " " + str(community.id))
+    context = {"comunidade": community}
+    print(community.title)
+    return render(request,"community_index_retrieve.html",context=context)
 
 def update_community_view(request, community_id):
     community = get_object_or_404(Community, pk=community_id)
@@ -39,16 +39,16 @@ def update_community_view(request, community_id):
             return redirect("retrieve_all_community_view")
     else:
         form = CommunityForm(instance=community)
-    context = {"form": form}
-    return render(request, "form.html", context)    
+    print(form)
+    return render(request, "communityform_update.html", context = {"form": form})    
 
 def delete_community_view(request, community_id): 
     community = get_object_or_404(Community, pk=community_id)
     if request.method == "POST":
         form = CommunityDeleteForm(request.POST)
-        if form.is_valid() and form.cleaned_data['Enviar']:
-            form.delete()
-            return redirect("index.html")  
+        if form.is_valid() and form.cleaned_data['confirm']:
+            community.delete()
+            return redirect("retrieve_all_community_view")  
     else:
         form = CommunityDeleteForm()
     return render(request, 'communityform_delete.html', {'form': form, 'community': community})
