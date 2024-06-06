@@ -10,8 +10,8 @@ from events_app.views import EventViewSet
 
 Router = DefaultRouter()
 Router.register('community', CommunityViewSet)
-Router.register('parceitos', PeopleViewSet)
-Router.register('projeto', ProjectViewSet)
+Router.register('people', PeopleViewSet)
+Router.register('project', ProjectViewSet)
 Router.register('events', EventViewSet)
 
 #É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
