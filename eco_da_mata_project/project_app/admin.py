@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Project
-from eco_da_mata_project.image_core.models import Image
+from image_core.models import Image
 
 
 class ImageInline(admin.TabularInline):

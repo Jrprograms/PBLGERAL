@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'people_app',
     'project_app',
     'events_app',
+    'image_core',
 ]
 
 MIDDLEWARE = [
