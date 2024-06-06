@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class = "container small">
-      <h1>Realmente deseja deletar a comunidade {{ community.name }}</h1>
+      <h1>Realmente deseja deletar a comunidade {{ community.title }}</h1>
       <form method="post">
         {% csrf_token %} {{ form.as_p }}
         <button type="submit">Enviar</button>

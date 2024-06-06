@@ -14,7 +14,7 @@
         <h1>Lista de Comunidades</h1>
         <ul>
             {% for comunidade in comunidades %}
-                  <li  class ="list-item" ><a href = "{% url 'retrieve_community_view' comunidade.id %}">{{comunidade}}</a><li>
+                  <li  class ="list-item" ><a href = "{% url 'retrieve_community_view' comunidade.id %}"><b>Comunidade:</b> {{comunidade}}</a><li>
                 <hr>
             {% endfor %}
         </ul>

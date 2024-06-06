@@ -23,14 +23,16 @@ class Community (models.Model):
         return self.title
 
 class New(models.Model):
+    
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    id_community = models.ForeignKey(Community, on_delete=models.CASCADE) 
-    title = models.CharField(max_length=500)
-    news_text = models.TextField()
-    publish_date = models.DateField()
-    category = models.CharField(max_length=100)
-    link = models.URLField()
+    id_community = models.ForeignKey(Community, on_delete=models.CASCADE, verbose_name="Comunidade")
+    title = models.CharField(max_length=500, verbose_name="Título")
+    news_text = models.TextField(verbose_name="Texto da Notícia")
+    publish_date = models.DateField(verbose_name="Data de Publicação")
+    category = models.CharField(max_length=100, verbose_name="Categoria") 
+    link = models.URLField(verbose_name="Link")
     
     def __str__(self):
-        return self.title
+        return self.title 
+
