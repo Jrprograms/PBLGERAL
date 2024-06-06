@@ -16,13 +16,15 @@ Router.register('events', EventViewSet)
 
 #É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
 urlpatterns = [
-    path('api/', include(Router.urls))
+    path('api/', include(Router.urls)),
+    path('community/', include('community_app.urls'))
 ]
- #   path('admin/', admin.site.urls),
-#  path('community/', include('community_app.urls')),
- #   path('parceiros/', include('people_app.urls')),
-  #  path('projeto/', include('project_app.urls')),
-   # path('events/', include('events_app.urls'))
+
+    # path('admin/', admin.site.urls),
+    # path('community/', include('community_app.urls')),
+    # path('parceiros/', include('people_app.urls')),
+    # path('projeto/', include('project_app.urls')),
+    # path('events/', include('events_app.urls'))
 
 
 if settings.DEBUG:

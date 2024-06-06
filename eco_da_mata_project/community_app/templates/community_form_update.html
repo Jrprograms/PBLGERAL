@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="{% static 'css\style.css' %}">
     
-    <title>Criando Comunidade</title>    
+    <title>Atualizando Comunidade</title>    
 </head>
 <body>
-    <h1>Criando Comunidade</h1>    
+    <div class = "container">
+    <h1>Atualizando a Comunidade</h1>    
     <form method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
+    <div class = "Meio-container">
+        <img src="{{ form.instance.logo.url }}" alt="Current profile image">
+            {% csrf_token %}
+            {{ form.as_p }} 
+        </div>
+            <button type="submit">Enviar</button>
+        </div>
     </form>
 </body>
 </html>

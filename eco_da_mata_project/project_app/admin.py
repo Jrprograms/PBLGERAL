@@ -1,5 +1,12 @@
 from django.contrib import admin
 from .models import Project
-# Register your models here.
+from eco_da_mata_project.image_core.models import Image
 
-admin.site.register(Project)
+
+class ImageInline(admin.TabularInline):
+    model = Image
+    
+class ProjectAdmin(admin.ModelAdmin):
+    inlines = [ImageInline]
+
+admin.site.register(Project, ProjectAdmin)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css\style.css' %}" />
+
+    <title>Deletando Comunidade</title>
+  </head>
+  <body>
+    <div class = "container small">
+      <h1>Realmente deseja deletar a comunidade {{ community.title }}</h1>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </body>
+</html>
