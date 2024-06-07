@@ -4,7 +4,7 @@ from . import forms
 from rest_framework import viewsets
 from .serializers import ProjectSerializer
 
-class ProjectViewSet(viewsets.ModelViewSet):
+class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
 
