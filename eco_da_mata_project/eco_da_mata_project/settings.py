@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'people_app',
     'project_app',
     'events_app',
+    'rest_frameworkdjango',
 ]
 
 MIDDLEWARE = [
