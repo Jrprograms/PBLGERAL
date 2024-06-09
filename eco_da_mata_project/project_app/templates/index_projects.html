@@ -49,19 +49,19 @@
     <div class="container">
         <h1>Lista de Projetos</h1>
         <ul>
-            {% for Projeto in Projetos %}
+            {% for Project in Projects %}
             <br>
                 <li>
-                    <p>Nome: <span class="value">{{ Projeto.name }}</span></p>
+                    <p>Nome: <span class="value">{{ Project.name }}</span></p>
                 </li>
                 <li>
-                    <p>Descrição: <span class="value">{{ Projeto.description }}</span></p>
+                    <p>Descrição: <span class="value">{{ Project.description }}</span></p>
                 </li>
                 <li>
-                    <p>Numero de telefone: <span class="value">{{ Projeto.phone_number }}</span></p>
+                    <p>Numero de telefone: <span class="value">{{ Project.phone_number }}</span></p>
                 </li>
                 <li>
-                    <p>Email: <span class ="value">{{ Projeto.email }}</span></p>
+                    <p>Email: <span class ="value">{{ Project.email }}</span></p>
             {% endfor %}
         </ul>
     </div>

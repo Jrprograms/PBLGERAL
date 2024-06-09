@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='event',
-            name='description',
+            name='body',
             field=models.CharField(max_length=300),
         ),
         migrations.AlterField(

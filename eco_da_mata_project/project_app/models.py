@@ -15,8 +15,8 @@ class Project (models.Model):
     phone_number = models.IntegerField() # IntegerField não precisa do max_length. Já removido.
     email = models.EmailField()
 
-    id_people = models.ForeignKey(People, on_delete=models.CASCADE)   
-    id_community = models.ForeignKey(Community, on_delete=models.CASCADE)
+    fk_people = models.ForeignKey(People, on_delete=models.CASCADE)   
+    fk_community = models.ForeignKey(Community, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name + self.description

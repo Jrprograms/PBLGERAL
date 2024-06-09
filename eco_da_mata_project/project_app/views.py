@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Project
+from .models import * 
 from . import forms
 from rest_framework import viewsets
 from .serializers import ProjectSerializer
@@ -9,12 +9,12 @@ class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ProjectSerializer
 
 def get_allprojects(request):
-    projetos = Project.objects.all()
-    return render(request, 'index_projects.html', context={'Projetos': projetos})
+    projects = Project.objects.all()
+    return render(request, 'index_projects.html', context={'Projects': projects})
 
 def get_project(request, Project_ID):
-    projeto = get_object_or_404(Project, id=Project_ID)
-    return render(request, 'index_project.html', context={'Projeto': projeto})
+    project = get_object_or_404(Project, id=Project_ID)
+    return render(request, 'index_project.html', context={'Project': project})
 
 def delete_project(request, Project_ID):
     pass
@@ -31,7 +31,7 @@ def create_project(request):
         return render(request, 'create_project.html', context=contexto)
 
 def update_project(request, Project_ID):
-    projeto = get_object_or_404(Project, pk=Project_ID)
+    project = get_object_or_404(Project, pk=Project_ID)
     if request.method == 'PUT':
         form = forms.ProjectForm(request.PUT)
         if form.is_valid():
@@ -39,5 +39,5 @@ def update_project(request, Project_ID):
             return redirect('../../')
     else:
         form = forms.ProjectForm()
-    return render(request, 'update_project.html', context={'Projeto': projeto})
+    return render(request, 'update_project.html', context={'Project': project})
 
