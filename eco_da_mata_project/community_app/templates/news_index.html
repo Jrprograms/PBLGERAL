@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css\reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css\style.css' %}" />
+
+    <title>Teste</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lista de noticias</h1>
+      <ul>
+        {% for noticia in noticias %}
+        <li class="list-item">
+          <a href="{% url 'retrieve_news_view' noticia.id %}"
+            >{{noticia.title}}</a
+          >
+          <p>Comunidade: {{noticia.id_community}}</p>
+        </li>
+
+        <li>
+          <hr />
+          {% endfor %}
+        </li>
+      </ul>
+
+      <button class="button">
+        <a href="{% url 'create_news_view' %}">Criar Noticia</a>
+      </button>
+    </div>
+  </body>
+</html>

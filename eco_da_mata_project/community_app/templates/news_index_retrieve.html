@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css\reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css\style.css' %}" />
+
+    <title>Lista de Noticias</title>
+  </head>
+  <body>
+    <div class="container textarea">
+        <h1>Notícia: {{ noticia.title }}</h1>
+      <div class="info_container">
+        <img class="image" src="{{ noticia.logo.url }}" alt="Logo da comunidade" />
+        <h2>Comunidade: {{ noticia.id_community }}</h2>
+        <p>Categoria: {{ noticia.category }}</p>
+        <p>Data de Publicação: {{ noticia.publish_date }}</p>
+        <p>Texto da Notícia: <p id = "noticia_texto">{{ noticia.news_text }}</p></p>
+        <p>Link: <a href="{{ noticia.link }}">{{ noticia.link }}</a></p>
+      </div>
+      <div>
+        <a href="{% url 'update_news_view' noticia.id %}"
+          ><button>Editar</button></a
+        >
+        <a href="{% url 'delete_news_view' noticia.id %}"
+          ><button>Delete</button></a
+        >
+      </div>
+    </div>
+  </body>
+</html>
+
+
+    <div class="info_container">
+        
+        
+        
+        

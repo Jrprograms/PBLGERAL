@@ -6,13 +6,13 @@ from .serializer import PeopleSerializer, SubcategorySerializer
 
 # Create your views here.
 
-class PeopleViewSet(viewsets.ModelViewSet):
+class PeopleViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = People.objects.all()
-    serializer_class = PeopleSerializer()
+    serializer_class = PeopleSerializer
 
-class SubcategoryViewSet(viewsets.ModelViewSet):
+class SubcategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Subcategorie.objects.all()
-    serializer_class = SubcategorySerializer()
+    serializer_class = SubcategorySerializer
 
 def getAllPeoples(request):
     pessoas = People.objects.all()

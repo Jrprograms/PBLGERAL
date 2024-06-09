@@ -21,12 +21,13 @@ class SubcategoryDeleteForm(forms.Form):
 class PeopleForm(forms.ModelForm):
     class Meta:
         model = People
-        fields = ['name', 'email', 'description', 'category', 'fk_subcategory']
+        fields = ['name', 'email', 'description', 'category', 'fk_subcategory', 'photo', 'link']
         widgets = {
             'name': forms.TextInput(attrs={'class':'form-control'}),
             'email': forms.EmailInput(attrs={'class':'form-control'}),
             'category': forms.Select(attrs={'class':'form-select'}),
             'description': forms.TextInput(attrs={'class':'form-control'}),
+            'link': forms.TextInput(attrs={'class':'form-control'}),
             }
     def __init__(self, *args, **kwargs):
         super(PeopleForm, self).__init__(*args, **kwargs)
