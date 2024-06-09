@@ -16,3 +16,4 @@ class Migration(migrations.Migration):
             new_name='body',
         ),
     ]
+# tá dando esse problema quando eu tento o migrate -> django.core.exceptions.FieldDoesNotExist: Event has no field named 'description'  

@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from .serializers import EventSerializer
 
 
-class EventViewSet(viewsets.ModelViewSet):
+class EventViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
 
