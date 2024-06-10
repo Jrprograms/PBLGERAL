@@ -15,8 +15,25 @@ Router.register('people', PeopleViewSet)
 Router.register('project', ProjectViewSet)
 Router.register('events', EventViewSet)
 
+
+schena_view = get_schema_view(
+    openapi.Info(
+        title="Eco da Mata",
+        default_version='v1',
+        description='Sem descrição',
+        terms_of_service="https://www.community.com/terms/",
+        contact=openapi.Contact(),
+        license=openapi.License(name="Sem nome"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
 #É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
 urlpatterns = [
+    path('swagger<format>/', schena_view.without_ui(cache_timeout=0), name='schena-json'),
+    path('swagger/', schena_view.with_ui('swagger', cache_timeout=0), name='schena-swagger-ui'),
+    path('redoc/', schena_view.with_ui('redoc', cache_timeout=0), name='schena-redoc'),
     path('api/', include(Router.urls)),
     path('community/', include('community_app.urls')), 
     path('project/', include('project_app.urls'))

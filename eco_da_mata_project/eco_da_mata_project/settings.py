@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'events_app',
     'core',
     'rest_framework',
+    'drf_yasg',
 ]
 
 REST_FRAMEWORK = {
