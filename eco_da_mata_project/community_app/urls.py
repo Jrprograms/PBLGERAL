@@ -3,6 +3,10 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+router
+
+
 urlpatterns = [
     path("", views.retrieve_all_community_view, name = "retrieve_all_community_view"),                #get all
     path("create/", views.create_community_view, name = "create_community_view"),                     #create

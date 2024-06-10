@@ -3,13 +3,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from community_app.views import CommunityViewSet
+from community_app.views import CommunityViewSet, NewViewSet 
 from people_app.views import PeopleViewSet
 from project_app.views import ProjectViewSet
 from events_app.views import EventViewSet
 
 Router = DefaultRouter()
 Router.register('community', CommunityViewSet)
+Router.register('new', NewViewSet)
 Router.register('people', PeopleViewSet)
 Router.register('project', ProjectViewSet)
 Router.register('events', EventViewSet)
