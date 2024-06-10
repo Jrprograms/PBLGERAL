@@ -47,8 +47,7 @@ INSTALLED_APPS = [
     'people_app',
     'project_app',
     'events_app',
-    'core',
-    'rest_framework',
+    'core'
 ]
 
 REST_FRAMEWORK = {

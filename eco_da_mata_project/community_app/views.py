@@ -3,7 +3,7 @@ from .models import Community, New
 from .forms import CommunityForm, CommunityDeleteForm,NewsDeleteForm,NewsForm
 from django.http import HttpResponse
 from rest_framework import viewsets
-from .serializers import CommunitySerializer
+from .serializers import CommunitySerializer, NewSerializer
 
 class CommunityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Community.objects.all()
@@ -27,7 +27,6 @@ def retrieve_all_community_view(request):
 def retrieve_community_view(request, community_id):     
     community = get_object_or_404(Community, pk = community_id)
     context = {"comunidade": community}
-    print(community.title)
     return render(request,"community_index_retrieve.html",context=context)
 
 def update_community_view(request, community_id):
@@ -39,7 +38,6 @@ def update_community_view(request, community_id):
             return redirect("retrieve_all_community_view")
     else:
         form = CommunityForm(instance=community)
-    print(form)
     return render(request, "community_form_update.html", context = {"form": form})    
 
 def delete_community_view(request, community_id): 
@@ -53,6 +51,10 @@ def delete_community_view(request, community_id):
         form = CommunityDeleteForm()
     return render(request, 'community_form_delete.html', {'form': form, 'community': community})
 
+
+class NewsViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = New.objects.all()
+    serializer_class = NewSerializer
 # News views
 def retrieve_all_news_view(request):
     News = New.objects.all()

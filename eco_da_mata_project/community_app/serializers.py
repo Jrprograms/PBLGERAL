@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Community
+from .models import Community,New
 
 class CommunitySerializer(serializers.ModelSerializer):
     class Meta:
