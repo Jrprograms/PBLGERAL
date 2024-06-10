@@ -36,7 +36,8 @@ urlpatterns = [
     path('redoc/', schena_view.with_ui('redoc', cache_timeout=0), name='schena-redoc'),
     path('api/', include(Router.urls)),
     path('community/', include('community_app.urls')), 
-    path('project/', include('project_app.urls'))
+    path('project/', include('project_app.urls')),
+    path('admin/', admin.site.urls)
 ]
 
     # path('admin/', admin.site.urls),
