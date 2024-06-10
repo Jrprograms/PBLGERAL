@@ -1,15 +1,14 @@
 from django.contrib import admin
-from .models import Imagem
-from community_app.models import Community
-from community_app.models import News
+from .models import Image
+from community_app.models import Community, New
 from events_app.models import Event 
 from people_app.models import People
 from project_app.models import Project 
 
 # Register your models here.
 
-class Imagemnline(admin.TabularInline):
-    model = Imagem
+class ImagemInline(admin.TabularInline):
+    model = Image
     extra = 1
 
 class CommunityAdmin(admin.ModelAdmin):
