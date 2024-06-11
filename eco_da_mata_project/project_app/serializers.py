@@ -3,5 +3,5 @@ from .models import *
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
-        Model = Project
+        model = Project
         fields = '__all__'
