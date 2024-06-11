@@ -1,8 +1,11 @@
 from rest_framework.routers import DefaultRouter
+from rest_framework import permissions
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
 from community_app.views import CommunityViewSet, NewsViewSet 
 from people_app.views import PeopleViewSet
 from project_app.views import ProjectViewSet
@@ -16,13 +19,13 @@ Router.register('project', ProjectViewSet)
 Router.register('events', EventViewSet)
 
 
-schena_view = get_schema_view(
+schema_view = get_schema_view(
     openapi.Info(
         title="Eco da Mata",
         default_version='v1',
         description='Sem descrição',
         terms_of_service="https://www.community.com/terms/",
-        contact=openapi.Contact(),
+        contact=openapi.Contact(name='Equipe virtual - Ecos da mMata'),
         license=openapi.License(name="Sem nome"),
     ),
     public=True,
@@ -31,13 +34,16 @@ schena_view = get_schema_view(
 
 #É uma boa prática nomear os paths de vocês. Principalmente quando tiverem trabalhando com formulários.
 urlpatterns = [
-    path('swagger<format>/', schena_view.without_ui(cache_timeout=0), name='schena-json'),
-    path('swagger/', schena_view.with_ui('swagger', cache_timeout=0), name='schena-swagger-ui'),
-    path('redoc/', schena_view.with_ui('redoc', cache_timeout=0), name='schena-redoc'),
+    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schena-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schena-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schena-redoc'),
     path('api/', include(Router.urls)),
     path('community/', include('community_app.urls')), 
     path('project/', include('project_app.urls')),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
     # path('admin/', admin.site.urls),
