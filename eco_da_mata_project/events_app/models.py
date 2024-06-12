@@ -9,7 +9,6 @@ class Event(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, auto_created=True, editable=False)
     title = models.CharField(max_length=50, verbose_name="Título")
     body = models.CharField(max_length=300, verbose_name="Descrição")
-    profile_image = models.ImageField(upload_to="media/events/", verbose_name="Imagem de perfil")
     #__
 
     begin_date = models.DateField(verbose_name="Data de início")
@@ -52,3 +51,4 @@ class review(models.Model):
     ("B", "Bom"),
     ("Mb", "Muito bom")
     ], verbose_name="Avaliação")
+    fk_event = models.ForeignKey(Event, on_delete=models.CASCADE, null= True)

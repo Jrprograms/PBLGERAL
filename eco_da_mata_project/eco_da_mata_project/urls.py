@@ -25,7 +25,7 @@ schema_view = get_schema_view(
         default_version='v1',
         description='Sem descrição',
         terms_of_service="https://www.community.com/terms/",
-        contact=openapi.Contact(name='Equipe virtual - Ecos da mMata'),
+        contact=openapi.Contact(name='Equipe virtual - Eco da Mata'),
         license=openapi.License(name="Sem nome"),
     ),
     public=True,
@@ -42,13 +42,6 @@ urlpatterns = [
     path('project/', include('project_app.urls')),
     path('admin/', admin.site.urls),
 ]
-
-    # path('admin/', admin.site.urls),
-    # path('community/', include('community_app.urls')),
-    # path('parceiros/', include('people_app.urls')),
-    # path('projeto/', include('project_app.urls')),
-    # path('events/', include('events_app.urls'))
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
