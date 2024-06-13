@@ -20,6 +20,7 @@ def create_community_view(request):
         form = CommunityForm()
         return render(request,"community_form_create.html", context = {"form": form})
 
+
 def retrieve_all_community_view(request):    
     community = Community.objects.all()
     return render(request,"community_index.html",context = {"comunidades": community})
