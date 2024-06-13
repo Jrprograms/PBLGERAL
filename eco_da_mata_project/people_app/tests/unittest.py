@@ -24,3 +24,19 @@ class PeopleTestCase(TestCase):
             link='www.github.com/kaiq-br',
             )
     
+    def nameTest(self):
+        people = People.objects.get(name='kaiq')
+        self.assertEqual(people.name)
+    
+    def emailTest(self):
+        people = People.objects.get(email='kaiq@email.com')
+        self.assertEqual(people.email)
+    
+    def categoryTest(self):
+        people = People.objects.get(category='PEOPLE')
+        self.assertEqual(people.category)
+    
+    def subcategoriyTest(self):
+        people = People.objects.get(fk_subcategory=self.subcategory)
+        self.assertEqual(people.fk_subcategory)
+    
