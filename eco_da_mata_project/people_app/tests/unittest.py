@@ -3,10 +3,7 @@ from models import People, Subcategorie
 
 class SubcategoryTestCase(TestCase):
     def setUp(self):
-        People.objects.create(
-            name='Exemplo',
-            category='PEOPLE'
-            )
+        self.subcategory = Subcategorie.objects.create(name='Exemplo', category='PEOPLE')
 
 class PeopleTestCase(TestCase):
     def setUp(self):
@@ -15,7 +12,6 @@ class PeopleTestCase(TestCase):
             email='kaiq@email.com',
             description='kaiq é legal',
             category='PEOPLE',
-            fk_subcategory=1,
-            photo='',
+            fk_subcategory=self.subcategory,
             link='www.github.com/kaiq-br',
             )
