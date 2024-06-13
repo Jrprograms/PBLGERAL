@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from views import *
 
 
 # router
@@ -19,4 +20,9 @@ urlpatterns = [
     path("news/<str:news_id>", views.retrieve_news_view, name = "retrieve_news_view"),     #get
     path("news/<str:news_id>/delete/", views.delete_news_view, name = "delete_news_view"), #delete
     path("news/<str:news_id>/update/", views.update_news_view, name = "update_news_view")  #update
+
+    path('', views.create_community_view, name='criar_comunidade_home'),
+    path('criar_comunidade/', views.create_community_view, name='cria_comunidade'),
+    path('pagina_de_sucesso/', views.retrieve_all_community_view, name='pagina_de_sucesso'),
+
 ]
