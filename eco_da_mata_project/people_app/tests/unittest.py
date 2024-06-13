@@ -1,4 +1,4 @@
-from django_test import TestCase
+from django.test import TestCase
 from models import People, Subcategorie
 
 class SubcategoryTestCase(TestCase):
