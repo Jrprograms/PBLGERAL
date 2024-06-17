@@ -26,4 +26,4 @@ class People(models.Model):
     link = models.URLField(max_length=200, null=True)
 
     def __str__(self):
-        return self.name.username
+        return self.name
