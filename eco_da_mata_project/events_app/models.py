@@ -42,6 +42,9 @@ class Event(models.Model):
     
     fk_project = models.ForeignKey(Project,on_delete=models.CASCADE, verbose_name="Associado ao projeto", null=True)
 
+    def __str__(self):
+        return self.title
+
 class review(models.Model):
     title = models.CharField(max_length=50,verbose_name="Título")
     body = models.CharField(max_length=300, verbose_name="Mensagem")
@@ -52,3 +55,6 @@ class review(models.Model):
     ("Mb", "Muito bom")
     ], verbose_name="Avaliação")
     fk_event = models.ForeignKey(Event, on_delete=models.CASCADE, null= True)
+
+    def __str__(self):
+        return self.title

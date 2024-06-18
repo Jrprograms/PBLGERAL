@@ -5,9 +5,6 @@
 </head>
 <body>
     <h1>{{ event.title }}</h1>
-    {% if event.profile_image %}
-        <img src="{{ event.profile_image.url }}" alt="{{ event.title }}" width="550" height="250"></p>
-    {% endif %}
     <p><strong>Descrição:</strong> {{ event.body }}</p>
     <p><strong>Data de Início:</strong> {{ event.begin_date }} | <strong>Data de Término:</strong> {{ event.end_date }}</p>
     <p><strong>Endereço:</strong> {{ event.address }} | <strong>Local:</strong> {{ event.location }}</p>
